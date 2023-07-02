@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Globalization
 
 Public Class _Default
     Inherits Page
@@ -9,13 +10,13 @@ Public Class _Default
     End Sub
 
     Protected Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
-        Dim connect As New SqlConnection("Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=TicketManagementSystem;Integrated Security=True")
+        'Dim connect As New SqlConnection("Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=TicketManagementSystem;Integrated Security=True")
         Dim title As String = txtTitle.Text
         Dim raisedby As String = txtRaisedBy.Text
         Dim severity As String = txtSeverity.Text
         Dim priority As String = DropDownListPriority.SelectedValue
         Dim email As String = txtEmail.Text
-        Dim raisedDate As String = txtCalender.Text
+        Dim raisedDate As Date = CalendarDate.SelectedDate
         Dim environment As String = RadioButtonEnvironment.SelectedValue
         Dim Category As String = DropDownListCategory.SelectedValue
         Dim SubCategory As String = DropDownListSubCategory.SelectedValue
@@ -24,18 +25,21 @@ Public Class _Default
 
         connect.Open()
 
-        Dim command As New SqlCommand("Insert into TicketInfo values ('" & title & "',
-           '" & raisedby & "',
-           '" & severity & "',
-           '" & priority & "',
-           '" & email & "',
-           '" & raisedDate & "',
-           '" & environment & "',
-           '" & Category & "',
-           '" & SubCategory & "',
-           '" & SubChildCategory & "',
-           '" & Description & "',
-           )")
+        Dim command As New SqlCommand("Insert into TicketInfo values (@Title,@RaisedBy,@Severity,
+        @PriorityLevel, @Email,@RaisedDate, @Environment, @Category, @SubCategory, @SubChildCategory,
+        @Description)", connect)
+
+        command.Parameters.AddWithValue("@Title", title)
+        command.Parameters.AddWithValue("@RaisedBy", raisedby)
+        command.Parameters.AddWithValue("@Severity", severity)
+        command.Parameters.AddWithValue("@PriorityLevel", priority)
+        command.Parameters.AddWithValue("@Email", email)
+        command.Parameters.AddWithValue("@RaisedDate", raisedDate)
+        command.Parameters.AddWithValue("@Environment", environment)
+        command.Parameters.AddWithValue("@Category", Category)
+        command.Parameters.AddWithValue("@SubCategory", SubCategory)
+        command.Parameters.AddWithValue("@SubChildCategory", SubChildCategory)
+        command.Parameters.AddWithValue("@Description", Description)
 
         command.ExecuteNonQuery()
 

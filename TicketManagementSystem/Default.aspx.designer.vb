@@ -131,13 +131,13 @@ Partial Public Class _Default
     Protected WithEvents Label6 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtCalender control.
+    '''CalendarDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtCalender As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents CalendarDate As Global.System.Web.UI.WebControls.Calendar
 
     '''<summary>
     '''Label7 control.
