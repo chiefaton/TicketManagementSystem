@@ -102,8 +102,8 @@
                 <td style="height: 20px">
                     <asp:DropDownList ID="DropDownListSubCategory" runat="server" Font-Size="Medium">
                         <asp:ListItem>IP Blocked</asp:ListItem>
-                        <asp:ListItem>Site not accessible</asp:ListItem>
-                        <asp:ListItem>Subscription Cancelled</asp:ListItem>
+                        <asp:ListItem>Site 404</asp:ListItem>
+                        <asp:ListItem Value="Not allowed">Not allowed</asp:ListItem>
                         <asp:ListItem>Storage Full</asp:ListItem>
                         <asp:ListItem>High Load</asp:ListItem>
                         <asp:ListItem>High Latency</asp:ListItem>

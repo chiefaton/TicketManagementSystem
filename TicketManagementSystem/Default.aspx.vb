@@ -46,16 +46,21 @@ Public Class _Default
         MsgBox("Successfully Inserted", MsgBoxStyle.Information, "Message")
 
         connect.Close()
+
+        ListProduct()
+
     End Sub
 
-    Protected Sub ListProduct()
+    Private Sub ListProduct()
         Dim command As New SqlCommand("select * from TicketInfo", connect)
         Dim sd As New SqlDataAdapter(command)
         Dim dt As New DataTable
-
         sd.Fill(dt)
         GridView1.DataSource = dt
+        GridView1.DataBind()
     End Sub
+
+
 
     'Protected Sub btnCreateTicket_Click(Sender As Object, e As EventArgs) Handles btnCreateTicket.Click
     '    Response.Redirect("CreateTicket.aspx")
