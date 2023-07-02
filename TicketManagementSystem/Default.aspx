@@ -13,7 +13,9 @@
                     <asp:Label ID="Label1" runat="server" Text="Title" Font-Bold="True" Font-Size="Medium"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtTitle" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtTitle" runat="server" Font-Size="Medium" Width="200px" Required="True" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtTitle"
+                    ErrorMessage="Title is required." />
                 </td>
             </tr>
             <tr>
@@ -21,7 +23,9 @@
                     <asp:Label ID="Label2" runat="server" Text="Description" Font-Bold="True" Font-Size="Medium"></asp:Label>
                 </td>
                 <td>
-                    <asp:TextBox ID="txtDescription" runat="server" Height="100px" TextMode="MultiLine" Width="600px"></asp:TextBox>
+                    <asp:TextBox ID="txtDescription" runat="server" Height="100px" TextMode="MultiLine" Width="600px" Required="True" />
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDescription"
+    ErrorMessage="Description is required." />
                 </td>
             </tr>
             <tr>
@@ -29,7 +33,9 @@
                     <asp:Label ID="Label3" runat="server" Text="Raised By" Font-Bold="True" Font-Size="Medium"></asp:Label>
                 </td>
                 <td style="height: 20px">
-                    <asp:TextBox ID="txtRaisedBy" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtRaisedBy" runat="server" Font-Size="Medium" Width="200px" Required="True" />
+<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtRaisedBy"
+    ErrorMessage="Raised By is required." />
                 </td>
             </tr>
             <tr>
@@ -37,11 +43,13 @@
                     <asp:Label ID="txtSeverity" runat="server" Text="Severity" Font-Bold="True" Font-Size="Medium"></asp:Label>
                 </td>
                 <td>
-                    <asp:RadioButtonList ID="RadioButtonsSeverity" runat="server" CellSpacing="1" Font-Size="Medium" RepeatDirection="Horizontal">
-                        <asp:ListItem>Low</asp:ListItem>
-                        <asp:ListItem>Medium</asp:ListItem>
-                        <asp:ListItem>High</asp:ListItem>
-                    </asp:RadioButtonList>
+                    <asp:RadioButtonList ID="RadioButtonsSeverity" runat="server" CellSpacing="1" Font-Size="Medium" RepeatDirection="Horizontal" Required="True">
+    <asp:ListItem>Low</asp:ListItem>
+    <asp:ListItem>Medium</asp:ListItem>
+    <asp:ListItem>High</asp:ListItem>
+</asp:RadioButtonList>
+<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="RadioButtonsSeverity"
+    ErrorMessage="Severity is required." />
                 </td>
             </tr>
 
@@ -63,7 +71,9 @@
                     <asp:Label ID="Label5" runat="server" Text="Email" Font-Bold="True" Font-Size="Medium"></asp:Label>
                 </td>
                 <td style="height: 20px">
-                    <asp:TextBox ID="txtEmail" runat="server" Font-Size="Medium" Width="200px"></asp:TextBox>
+                    <asp:TextBox ID="txtEmail" runat="server" Font-Size="Medium" Width="200px" />
+<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtEmail"
+    ErrorMessage="Invalid email address." ValidationExpression="\w+([-+.]\w+)@\w+([-.]\w+)(\.\w+)?" />
                 </td>
             </tr>
             <tr>
