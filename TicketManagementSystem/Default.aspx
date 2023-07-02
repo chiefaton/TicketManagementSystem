@@ -152,6 +152,21 @@
                     <asp:Button ID="btnSubmit" runat="server" Font-Size="Medium" Text="Submit" />
                 </td>
             </tr>
+
+        <tr>
+                <td style="width: 283px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnUpdate" runat="server" Font-Size="Medium" Text="Update" />
+                </td>
+            </tr>
+
+<tr>
+                <td style="width: 283px">&nbsp;</td>
+                <td>
+                    <asp:Button ID="btnDelete" runat="server" Font-Size="Medium" Text="Delete" />
+                </td>
+            </tr>
+            
         </table>
 
         <div align="center">
